@@ -1,5 +1,10 @@
+/* *{
+    margin: 0;
+    padding: 0;
+}
+ */
 body {
-    background: rgb(161, 219, 241);
+    background: rgb(238, 245, 248);
 }
 
 .container {
@@ -14,7 +19,7 @@ body {
     background: rgb(128, 128, 128);
     padding: 20px;
     border-radius: 5px;
-    border: 3px solid;
+    /* border: 1px solid; */
 }
 
 .calculator form input {
@@ -46,4 +51,8 @@ form #display input {
     text-align: right;
     font-size: 50px;
     box-shadow: none;
+}
+
+form input.operators {
+    color: rgb(165, 203, 241);
 }
