@@ -41,10 +41,13 @@ function startCalculator() {
 };
 
 function startGame() {
+    input.value = ''
+    input.focus()
     let playing = true;
     let score = 0;
     let correctAnswer;
-    score.textContent = `Score: ${score}`
+    
+    scoreDisplay.textContent = `Score: ${score}`
 
     calculator.style.visibility = "visible";
     input.style.visibility = "visible";
@@ -54,24 +57,29 @@ function startGame() {
         element.removeChild(element.firstChild);
     };
 
-    // let timer = setTimeout(gameOver, 10000);
+    let timer = setTimeout(gameOver, 10000);
     generateMathProblems();
 
-};
 
-    // function gameOver() {
-    //     playing = false;
-    //     clearTimeout(timer)
-    //     alert(`Game over! Your score: ${score}`)
-    // };
+
+    function gameOver() {
+        playing = false;
+        clearTimeout(timer)
+        alert(`Game over! Your score: ${score}`)
+        scoreDisplay.style.alignItems = "center"
+        scoreDisplay.innerHTML = `Score: ${score}<br>Press 'Start Game' to play again!`
+        input.style.visibility = "hidden";
+    };
 
     function checkAnswer() {
         let userAnswer = parseInt(input.value)
         if (userAnswer === correctAnswer) {
+            ansResponse.style.color = "green"
             ansResponse.textContent = "Correct!"
             score += 1
         }
         else {
+            ansResponse.style.color = "red"
             ansResponse.textContent = "Incorrect!"
         }
         setTimeout(() => {
@@ -99,3 +107,4 @@ function startGame() {
         input.value = ''
         input.focus()
     };
+};
