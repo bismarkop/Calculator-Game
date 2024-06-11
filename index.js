@@ -4,6 +4,8 @@ const calculator = document.getElementById("calculator");
 const buttonDiv = document.getElementById("buttons");
 const startCalcBtn = document.createElement("button");
 const startGameBtn = document.createElement("button");
+const headerTextMain = document.querySelector(".headerTextMain")
+const headerText = document.querySelector(".headerText")
 
 
 // buttons
@@ -23,6 +25,9 @@ buttonDiv.style.justifyContent = "center";
 
 function startCalculator() {
     calculator.style.visibility = "visible";
+    headerTextMain.textContent = "Use the calculator to answer simple math problems."
+    // headerText.innerText = ""
+    
 };
 
 function startGame() {

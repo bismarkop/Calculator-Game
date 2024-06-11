@@ -11,10 +11,10 @@
 <body>
     <div id="gameHeader">
         <h1 style="margin-bottom: 0; ">Calculator Game</h1>
-        <h3 style="margin-bottom: 0;">Use this calculator to:</h3>
+        <h3 class="headerTextMain" style="margin-bottom: 0;">Use this calculator to:</h3>
         <ul style="font-size: large;">
-            <li>Do basic math</li>
-            <li>Play a game</li>
+            <li class="headerText">Do basic math</li>
+            <li class="headerText">Play a game</li>
         </ul>
     </div>
 
@@ -25,7 +25,7 @@
         <div id="calculator">
             <form>
                 <div id="display">
-                    <input type="text" name="display" maxlength="9" readonly>
+                    <input type="text" name="display" maxlength="9" value="0" readonly>
                 </div>
                 <div>
                     <input type="button" value="7" onclick="display.value += '7' ">
