@@ -3,7 +3,6 @@ body {
 }
 
 
-
 #gameHeader {
     display: flex;
     flex-direction: column;
@@ -27,7 +26,6 @@ body {
 
 #quest-ans {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     font-size: 30px;
@@ -46,6 +44,20 @@ button {
 button:hover {
     border-color: #1206f5;
     background-color: #deedf2;
+}
+
+.flash-number {
+    position: absolute;
+    font-size: 70px;
+    color: blue;
+    display: none;
+    animation: flash 0.5s ease-in-out;
+}
+
+@keyframes flash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 #score {
@@ -67,7 +79,6 @@ button:hover {
     background: rgb(128, 128, 128);
     padding: 20px;
     border-radius: 5px;
-    /* border: 1px solid; */
 }
 
 #calculator form input {

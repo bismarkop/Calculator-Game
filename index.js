@@ -51,60 +51,79 @@ function startGame() {
 
     calculator.style.visibility = "visible";
     input.style.visibility = "visible";
-    headerTextMain.textContent = "Test your focus!\nAnswer as many problems as you can in 60 seconds!"; // Why isn't the line break working?
+    headerTextMain.textContent = "Test your focus!\nAnswer as many problems as you can in 60 seconds!"; 
     const element = document.getElementById("optionList");
     while (element.firstChild) {
         element.removeChild(element.firstChild);
     };
 
-    let timer = setTimeout(gameOver, 10000);
+    let timer = setTimeout(gameOver, 60000);
     generateMathProblems();
+    flashingNumbers();
 
 
 
     function gameOver() {
         playing = false;
-        clearTimeout(timer)
-        alert(`Game over! Your score: ${score}`)
-        scoreDisplay.style.alignItems = "center"
-        scoreDisplay.innerHTML = `Score: ${score}<br>Press 'Start Game' to play again!`
+        clearTimeout(timer);
+        alert(`Game over! Your score: ${score}`);
+        scoreDisplay.style.alignItems = "center";
+        scoreDisplay.innerHTML = `Score: ${score}<br>Press 'Start Game' to play again!`;
         input.style.visibility = "hidden";
+        problemEl.textContent = '';
     };
 
     function checkAnswer() {
         let userAnswer = parseInt(input.value)
         if (userAnswer === correctAnswer) {
-            ansResponse.style.color = "green"
-            ansResponse.textContent = "Correct!"
-            score += 1
+            ansResponse.style.color = "green";
+            ansResponse.textContent = "Correct!";
+            score += 1;
         }
         else {
-            ansResponse.style.color = "red"
-            ansResponse.textContent = "Incorrect!"
+            ansResponse.style.color = "red";
+            ansResponse.textContent = "Incorrect!";
         }
         setTimeout(() => {
-            ansResponse.textContent = ""
-            generateMathProblems()
-        }, 800)
+            ansResponse.textContent = "";
+            generateMathProblems();
+        }, 800);
     }
 
     input.addEventListener('keypress', (e) => {
         if (e.key === "Enter") {
-            checkAnswer()
+            checkAnswer();
         }
-    })
+    });
 
     function generateMathProblems() {
         let num1 = Math.floor(Math.random() * 10) + 1;
         let num2 = Math.floor(Math.random() * 10) + 1;
-        let ops = ['+', '-', '*', '/'][Math.floor(Math.random() * 4)]
+        let ops = ['+', '-', '*', '/'][Math.floor(Math.random() * 4)];
         
-        problemEl.textContent = `${num1} ${ops} ${num2}?`
-        correctAnswer = eval(num1 + ops + num2)
-        
-        console.log(problemEl.textContent)
-        console.log(correctAnswer)
-        input.value = ''
-        input.focus()
+        problemEl.textContent = `${num1} ${ops} ${num2}?`;
+        correctAnswer = eval(num1 + ops + num2);
+        input.value = '';
+        input.focus();
     };
+
+    function flashingNumbers() {
+        if (!playing) {
+            return;
+        }
+        let flashNumber = document.createElement('div');
+        flashNumber.classList.add('flash-number');
+        flashNumber.style.top = `${Math.random() * 80}%`;
+        flashNumber.style.left = `${Math.random() * 80}%`;
+        flashNumber.textContent = Math.floor(Math.random() * 100);
+        body.appendChild(flashNumber);
+        flashNumber.style.display = 'block';
+        setTimeout(() => {
+            body.removeChild(flashNumber)
+        }, 500)
+
+        if (playing) {
+            setTimeout(flashingNumbers, Math.random() * 1000 + 500)
+        }
+    }
 };
