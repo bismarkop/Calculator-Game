@@ -90,3 +90,8 @@ form #display input {
 form input.operators {
     color: rgb(165, 203, 241);
 }
+
+form input.numPad:hover {
+    border-color: #1206f5;
+    background-color: #deedf2;
+}
