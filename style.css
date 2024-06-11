@@ -3,7 +3,6 @@ body {
 }
 
 #gameHeader {
-    /* position: absolute; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,12 +15,22 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+#quest-ans {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding-top: 30px;
+    gap: 5px;
 }
 
 button {
@@ -37,14 +46,18 @@ button:hover {
     background-color: #deedf2;
 }
 
-.startCalc,
-.startGame {
-    padding: 20px;
-    margin: 20px;
+#score {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-size: 30px;
 }
 
-
 #calculator {
+    visibility: hidden;
+}
+
+#input {
     visibility: hidden;
 }
 
@@ -91,7 +104,3 @@ form input.operators {
     color: rgb(165, 203, 241);
 }
 
-form input.numPad:hover {
-    border-color: #1206f5;
-    background-color: #deedf2;
-}
