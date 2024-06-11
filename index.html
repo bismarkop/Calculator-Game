@@ -5,16 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>The Calculator</title>
 </head>
 
 <body>
+    <div id="gameHeader">
+        <h1 style="margin-bottom: 0; ">Calculator Game</h1>
+        <h3 style="margin-bottom: 0;">Use this calculator to:</h3>
+        <ul style="font-size: large;">
+            <li>Do basic math</li>
+            <li>Play a game</li>
+        </ul>
+    </div>
 
-    <div class="container">
-        <div class="calculator">
+    <div id="buttons"></div>
+
+    <div id="container">
+        
+        <!-- <div id="buttons">
+            <input type="button" class="startCalc" value="Calculator" onclick="startCalculator()">
+            <input type="button" class="startGame" value="Start Game" onclick="startCalculator()">
+        </div> -->
+
+        <div id="calculator">
             <form>
                 <div id="display">
-                    <input type="text" name="display" readonly>
+                    <input type="text" name="display" maxlength="9" readonly>
                 </div>
                 <div>
                     <input type="button" value="7" onclick="display.value += '7' ">
@@ -48,9 +64,6 @@
             </form>
         </div>
     </div>
-
-
-
 
 
     <script src="./index.js"></script>

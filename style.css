@@ -1,28 +1,61 @@
-/* *{
-    margin: 0;
-    padding: 0;
-}
- */
 body {
     background: rgb(238, 245, 248);
 }
 
-.container {
+#gameHeader {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.calculator {
+button {
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: #1206f5;
+    background-color: #deedf2;
+}
+
+.startCalc,
+.startGame {
+    padding: 20px;
+    margin: 20px;
+}
+
+
+#calculator {
+    visibility: hidden;
+}
+
+#calculator {
     background: rgb(128, 128, 128);
     padding: 20px;
     border-radius: 5px;
     /* border: 1px solid; */
 }
 
-.calculator form input {
+#calculator form input {
     border: 0;
     outline: 0;
     width: 60px;
@@ -51,6 +84,7 @@ form #display input {
     text-align: right;
     font-size: 50px;
     box-shadow: none;
+    background-color: rgb(159, 168, 175);
 }
 
 form input.operators {
