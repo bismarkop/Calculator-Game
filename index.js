@@ -60,7 +60,7 @@ function startGame() {
         element.removeChild(element.firstChild);
     };
 
-    let timer = setTimeout(gameOver, 10000);
+    let timer = setTimeout(gameOver, 60000);
     generateMathProblems();
     flashingNumbers();
 
