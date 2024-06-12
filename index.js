@@ -4,19 +4,25 @@ const calculator = document.getElementById("calculator");
 const buttonDiv = document.getElementById("headerButtons");
 const startCalcBtn = document.createElement("button");
 const startGameBtn = document.createElement("button");
+startCalcBtn.setAttribute('id', 'calcBtn');
+startGameBtn.setAttribute('id', 'startGameBtn');
 const ulList = document.getElementById("optionList");
 const headerTextMain = document.querySelector(".headerTextMain");
 const headerText = document.querySelector(".headerText");
-const scoreDisplay = document.querySelector("#score")
-const problemEl = document.getElementById("problems")
-const input = document.getElementById("input")
-const ansResponse = document.getElementById("answerResponse")
+const scoreDisplay = document.querySelector("#score");
+const problemEl = document.getElementById("problems");
+const input = document.getElementById("input");
+const ansResponse = document.getElementById("answerResponse");
 ulList.appendChild(headerText);
+let playing = false;
 
 
-// buttons
+// Button styles and functions
 startCalcBtn.addEventListener("click", startCalculator);
 startGameBtn.addEventListener("click", startGame);
+startGameBtn.addEventListener("click", function() {
+    startGameBtn.textContent = "Stop Game";
+});
 startCalcBtn.textContent = "Calculator";
 startGameBtn.textContent = "Start Game";
 buttonDiv.appendChild(startCalcBtn);
@@ -29,7 +35,6 @@ buttonDiv.style.alignItems = "center";
 buttonDiv.style.justifyContent = "center";
 
 
-
 function startCalculator() {
     calculator.style.visibility = "visible";
     headerTextMain.textContent = "Use the calculator to answer simple math problems.";
@@ -40,22 +45,27 @@ function startCalculator() {
 
     input.style.visibility = "hidden";
     problemEl.textContent = '';
+    scoreDisplay.textContent = '';
 
 };
 
+
 function startGame() {
-    input.value = ''
-    input.focus()
-    let playing = true;
+    playing = true;
     let score = 0;
     let correctAnswer;
-    
+    input.value = ''
+    input.focus()
+
     scoreDisplay.textContent = `Score: ${score}`
     calculator.style.visibility = "visible";
     input.style.visibility = "visible";
+    startGameBtn.removeEventListener("click", startGame)
+    startGameBtn.addEventListener("click", gameOver);
     input.type = "number"
 
     headerTextMain.textContent = "Test your focus!\nAnswer as many problems as you can in 60 seconds!";
+    
     
     const element = document.getElementById("optionList");
     while (element.firstChild) {
@@ -65,6 +75,10 @@ function startGame() {
     let timer = setTimeout(gameOver, 60000);
     generateMathProblems();
     flashingNumbers();
+
+
+
+    
 
     // Come back to create a button that can stop the game
     // function stopGame() {
@@ -81,6 +95,9 @@ function startGame() {
         input.style.visibility = "hidden";
         problemEl.textContent = '';
         startGameBtn.textContent = "Start Game";
+        startGameBtn.style.visibility = "visible";
+        startGameBtn.removeEventListener("click", gameOver)
+        startGameBtn.addEventListener("click", startGame);
     };
 
     function checkAnswer() {
