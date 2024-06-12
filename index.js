@@ -77,15 +77,6 @@ function startGame() {
     flashingNumbers();
 
 
-
-    
-
-    // Come back to create a button that can stop the game
-    // function stopGame() {
-    //     playing = false
-    //     gameOver()
-    // }
-
     function gameOver() {
         playing = false;
         clearTimeout(timer);
