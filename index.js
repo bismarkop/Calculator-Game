@@ -38,6 +38,9 @@ function startCalculator() {
         element.removeChild(element.firstChild);
     }
 
+    input.style.visibility = "hidden";
+    problemEl.textContent = '';
+
 };
 
 function startGame() {
@@ -57,7 +60,7 @@ function startGame() {
         element.removeChild(element.firstChild);
     };
 
-    let timer = setTimeout(gameOver, 60000);
+    let timer = setTimeout(gameOver, 10000);
     generateMathProblems();
     flashingNumbers();
 
