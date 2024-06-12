@@ -51,10 +51,12 @@ function startGame() {
     let correctAnswer;
     
     scoreDisplay.textContent = `Score: ${score}`
-
     calculator.style.visibility = "visible";
     input.style.visibility = "visible";
-    headerTextMain.textContent = "Test your focus!\nAnswer as many problems as you can in 60 seconds!"; 
+    input.type = "number"
+
+    headerTextMain.textContent = "Test your focus!\nAnswer as many problems as you can in 60 seconds!";
+    
     const element = document.getElementById("optionList");
     while (element.firstChild) {
         element.removeChild(element.firstChild);
@@ -64,7 +66,11 @@ function startGame() {
     generateMathProblems();
     flashingNumbers();
 
-
+    // Come back to create a button that can stop the game
+    // function stopGame() {
+    //     playing = false
+    //     gameOver()
+    // }
 
     function gameOver() {
         playing = false;
@@ -74,6 +80,7 @@ function startGame() {
         scoreDisplay.innerHTML = `Score: ${score}<br>Press 'Start Game' to play again!`;
         input.style.visibility = "hidden";
         problemEl.textContent = '';
+        startGameBtn.textContent = "Start Game";
     };
 
     function checkAnswer() {

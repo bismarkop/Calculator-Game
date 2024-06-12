@@ -30,6 +30,7 @@ body {
     align-items: center;
     font-size: 30px;
     padding-top: 30px;
+    margin-top: 0;
     gap: 5px;
 }
 
