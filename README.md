@@ -1,4 +1,5 @@
 # Calculator and Math Game
+This project was created to test and practice my DOM Manipulation skillset
 
 ## Features
 * Basic calculator
